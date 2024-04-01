@@ -59,8 +59,17 @@ class MainActivity : ComponentActivity() {
                     }
                     Spacer(modifier = Modifier.width(16.dp))
                     Button(onClick = {
-                        var result = num1.toInt() / num2.toInt()
-                        Toast.makeText(applicationContext,"Result is $result",Toast.LENGTH_SHORT).show()
+                        if (num2.toInt()!= 0) {
+                            var result = num1.toInt() / num2.toInt()
+                            Toast.makeText(
+                                applicationContext,
+                                "Result is $result",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Toast.makeText(applicationContext, "Error: Cannot divide by zero", Toast.LENGTH_SHORT).show()
+                        }
+
                     }) {
                         Text(text = "/")
                     }
